@@ -1,22 +1,28 @@
+using System;
+using System.Collections;
+
+
 namespace Support
 {
+
+    public enum ListUsage
+    {
+        WhiteList,
+        BlackList,
+        Undefined
+    }
+
     public abstract class BaseList
     {
-        enum ListUsage
-        {
-            WhiteList,
-            BlackList,
-            Undefined
-        }
         
-        private ArrayList list;
+        protected ArrayList list;
+        protected ListUsage listUsage;
         
         public ArrayList List { get => list; set => list = value; }
-        private ListUsage ListUsage { get => listUsage; set => listUsage = value; }
+        public ListUsage ListUsage { get => listUsage; set => listUsage = value; }
 
-        private ListUsage listUsage;
 
-        abstract public BaseList(ListUsage ListType)
+        public abstract BaseList(ListUsage ListType)
         {
             this.listUsage = ListType;
         }
