@@ -21,7 +21,7 @@ on:
 jobs:
   Activate-On-Issue:
     name: Updating issues with Support Status on DotNet ${{ matrix.dotnet }}
-    runs-on: [linux-latest]
+    runs-on: [ubuntu-latest]
     strategy:
       matrix:
         dotnet: [ '3.1.100' ]
