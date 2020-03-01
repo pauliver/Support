@@ -20,11 +20,11 @@ namespace Support
 
         public string LostIssueLabel = "Support: Issue Was Lost";
 
-        public System.TimeSpan DesiredResponseTime = System.TimeSpan.FromHours(48);
+        public System.TimeSpan DesiredResponseTime = System.TimeSpan.FromHours(48); //2880
 
-        public System.TimeSpan AbandonedByAuthor = System.TimeSpan = System.TimeSpan.FromDays(7);
-        public System.TimeSpan AbandonedBySystem = System.TimeSpan = System.TimeSpan.FromDays(7);
-        public System.TimeSpan Lost = System.TimeSpan = System.TimeSpan.FromDays(21);
+        public System.TimeSpan AbandonedByAuthor = System.TimeSpan = System.TimeSpan.FromDays(7); //10080
+        public System.TimeSpan AbandonedBySystem = System.TimeSpan = System.TimeSpan.FromDays(7); //10080
+        public System.TimeSpan Lost = System.TimeSpan = System.TimeSpan.FromDays(21); //30240
     
 
     }
