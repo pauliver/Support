@@ -4,7 +4,7 @@ namespace Support
     {
         
         //https://github.com/pauliver/IRL-StatusReport/edit/master/StatusReport/StatusReport/IRLissue.cs
-        public IRLissue(
+        public IssueParsing(
             string name, string issue, string url)
         {
             EventName = name;
