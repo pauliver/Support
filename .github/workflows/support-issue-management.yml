@@ -1,0 +1,43 @@
+name: Support Issue Management
+env:
+  Repo: "Support"
+  Owner: "pauliver"
+  SupportIssueLabel: "Support: Requested"
+  StaleSupportIssueLabel: "Support: Stale"
+  SolvedSupportIssueLabel: "Support: Provided"
+  LostIssueLabel: "Support: Issue Was Lost"
+  DesiredResponseTime: 2880
+  AbandonedByAuthor: 10080
+  AbandonedBySystem: 10080
+  Lost: 30240
+  jsonfilepath: 
+
+jobs:
+  Activate-On-Issue:
+    name: Process Images with DotNet ${{ matrix.dotnet }}
+    runs-on: [linux-latest]
+    strategy:
+      matrix:
+        dotnet: [ '3.1.100' ]
+    steps:
+      - name: Checkout Support Issue Management tool
+        uses: actions/checkout@v2
+        with:
+          repository: pauliver/support
+          path: main
+        
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+     
+      - name: Restore Dependancies
+        run: dotnet restore main/
+
+      - name: Build Support, Release COnfiguration
+        run: dotnet build main/ --configuration Release
+      
+      - name: Run the Support Tool
+        run: dotnet  ${{github.workspace}}\main\bin\Release\netcoreapp3.1\Support.dll 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
