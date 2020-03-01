@@ -22,7 +22,7 @@ namespace Support
         public ListUsage ListUsage { get => listUsage; set => listUsage = value; }
 
 
-        public abstract BaseList(ListUsage ListType)
+        public BaseList(ListUsage ListType)
         {
             this.listUsage = ListType;
         }
