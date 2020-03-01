@@ -10,11 +10,17 @@ env:
   AbandonedByAuthor: 10080
   AbandonedBySystem: 10080
   Lost: 30240
-  jsonfilepath: 
+  jsonfilepath: "invalid.json"
+
+on:
+  issue_comment:
+  issues:
+  schedule:
+  - cron: "7 1 * * 0-6"
 
 jobs:
   Activate-On-Issue:
-    name: Process Images with DotNet ${{ matrix.dotnet }}
+    name: Updating issues with Support Status on DotNet ${{ matrix.dotnet }}
     runs-on: [linux-latest]
     strategy:
       matrix:
