@@ -1,7 +1,19 @@
 ﻿using System;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Octokit;
 
 namespace Support
 {
+
+    // What do we need to trigger on 
+    // - New Issues
+    // - Issue Edit
+    // - Issue Comment
+    // - Issue Close 
+
     class Program
     {
         private const int JsonPath_Arg_Index = 0;
@@ -97,6 +109,18 @@ namespace Support
                 LoggedIn = false;
                 return;
             }
+
+            Console.WriteLine(" --- ");
+
+            if(!LoggedIn)
+            {
+                Console.WriteLine("GitHub Login State unclear, Exiting");
+                return;
+            }
+            
+
+            var issues = await github.Issue.GetEnvironmentVariable(Owner,Repo);
+
 
 
         }
