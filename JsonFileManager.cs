@@ -26,5 +26,9 @@ namespace Support
         public System.TimeSpan Lost = System.TimeSpan.FromMinutes(30240); //30240 minutes is 21 days
     
 
+        public bool StaleBotMustBeStopped = true; //If it's not a support issue, we must stop stale bot
+        public string StaleBotName = "stale";
+        public string StaleBotLabel = "wontfix";
+
     }
 }
