@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Text.Encodings.Web;
-using System.Text.Unicode;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Octokit;
@@ -95,12 +93,12 @@ namespace Support
                 LoggedIn = true; 
             }catch(System.NullReferenceException nre)
             {
-                Console.WriteLine("Null Refernece Exception :  " + nre.TargetSite());
+                Console.WriteLine("Null Refernece Exception :  " + nre.TargetSite);
                 Console.WriteLine("You likely forgot to set..");
                 Console.WriteLine("  env:");
                 Console.WriteLine("    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}");
                 Console.WriteLine(" in your .yml file");
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine(nre.ToString());
                 LoggedIn = false;
                 return;
             }catch(Exception ex){
@@ -118,8 +116,6 @@ namespace Support
                 return;
             }
             
-
-            var issues = await github.Issue.GetEnvironmentVariable(Owner,Repo);
 
 
 

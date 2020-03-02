@@ -7,6 +7,7 @@ namespace Support
         public IssueParsing(
             string name, string issue, string url)
         {
+            /*
             EventName = name;
 
             string[] EachLine = issue.Split(Environment.NewLine);
@@ -76,6 +77,7 @@ namespace Support
 
                 }
             }
+            */
         }
     }
 }

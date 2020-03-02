@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="System.Net" />
+  </ItemGroup>
+    
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+    <Reference Include="System.Text.Json" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2' ">
+    <PackageReference Include="System.Text.Json" Version="4.7.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <PackageReference Include="Octokit" Version="0.40.0" />
   </ItemGroup>
   
